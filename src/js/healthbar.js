@@ -1,16 +1,12 @@
 export default function healthBar(obj) {
-  const arr = [];
-  obj.sort((a, b) => a.health - b.health);
-  for (let i = 0; i < obj.length; i += 1) {
-    if (obj[i].health >= 50) {
-      arr.push(`${obj[i].name} healty`);
-    }
-    if (obj[i].health < 50 && obj.health > 15) {
-      arr.push(`${obj[i].name} wounded`);
-    }
-    if (obj[i].health < 15) {
-      arr.push(`${obj[i].name} critical`);
-    }
+  if (obj.health >= 50) {
+    return 'healty';
   }
-  return arr;
+  if (obj.health < 50 && obj.health > 15) {
+    return 'wounded';
+  }
+  if (obj.health < 15) {
+    return 'critical';
+  }
+  return 0;
 }
